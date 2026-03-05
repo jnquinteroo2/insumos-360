@@ -53,11 +53,11 @@ export default function CheckoutPage() {
           apiKey: process.env.NEXT_PUBLIC_BOLD_IDENTITY_KEY,
           integritySignature: data.integritySignature,
           description: "Compra Premium Comfort 360",
-          tax: "0",
           payerEmail: formData.email,
           payerPhone: formData.phone,
           payerDocumentType: "CC",
           payerDocument: formData.document,
+          redirectionUrl: window.location.origin + "/comfort-360"
         });
 
         checkout.open();
@@ -73,8 +73,8 @@ export default function CheckoutPage() {
   return (
     <main className="min-h-screen bg-gray-50/50">
       <Script
-        src="https://checkout.bold.co/v2/scripts/bold.js"
-        strategy="lazyOnload"
+        src="https://checkout.bold.co/library/boldPaymentButton.js"
+        strategy="afterInteractive"
       />
       <GlassNavbar />
 
@@ -111,7 +111,6 @@ export default function CheckoutPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-[1fr,minmax(350px,400px)] gap-8 lg:gap-12">
-            {}
             <div className="space-y-4">
               <h2 className="text-lg font-bold text-navy-800 mb-4 pb-2 border-b border-gray-100">
                 Resumen del pedido ({cart.reduce((a, c) => a + c.quantity, 0)}{" "}
@@ -165,7 +164,6 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            {}
             <form
               onSubmit={handlePayment}
               className="bg-white p-5 md:p-8 rounded-3xl shadow-lg border border-gray-100 h-fit space-y-5"
@@ -218,7 +216,6 @@ export default function CheckoutPage() {
                     setFormData({ ...formData, phone: v })
                   }
                 />
-                {}
                 <InputGroup
                   label="Dirección de entrega"
                   type="text"
@@ -270,7 +267,7 @@ function InputGroup({ label, onChange, ...props }: any) {
       <input
         {...props}
         className="w-full p-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-500 text-navy-900 bg-gray-50 placeholder-gray-400 text-sm"
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e: any) => onChange(e.target.value)}
       />
     </div>
   );
