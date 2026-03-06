@@ -7,9 +7,9 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const paymentStatus = body?.type || body?.payment?.status || body?.event_type;
-
-    if (paymentStatus === 'SALE_APPROVED' || paymentStatus === 'APPROVED') {
+    const rawStatus = body?.type || body?.payment?.status || body?.event_type || 'DESCONOCIDO';
+    const paymentStatus = String(rawStatus).toUpperCase();
+    if (paymentStatus.includes('APPROVE')) {
       const paymentData = body?.data || body?.payment || {};
       
       const customerEmail = paymentData?.payer_email || paymentData?.customer?.email || 'cliente@ejemplo.com';
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
       await resend.emails.send({
         from: 'ventas@insumos360.com',
-        to: [customerEmail, process.env.EMAIL_RECEIVER as string],
+        to: [customerEmail, process.env.EMAIL_RECEIVER as string].filter(Boolean),
         subject: '¡Pago Confirmado! Tu pedido en Comfort 360',
         html: `
           <div style="font-family: Arial, sans-serif; color: #0A192F; padding: 20px;">
@@ -35,6 +35,14 @@ export async function POST(req: Request) {
             <p>En breve comenzaremos a preparar tu pedido para el envío.</p>
           </div>
         `
+      });
+
+    } else {
+      await resend.emails.send({
+        from: 'ventas@insumos360.com',
+        to: process.env.EMAIL_RECEIVER as string,
+        subject: `🚨 MODO DETECTIVE: Estado Bold ${paymentStatus}`,
+        text: `Bold se comunicó con la tienda, pero mandó un estado diferente a Aprobado.\n\nJSON que envió Bold:\n${JSON.stringify(body, null, 2)}`
       });
     }
 
