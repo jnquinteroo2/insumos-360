@@ -57,7 +57,7 @@ export default function CheckoutPage() {
           payerPhone: formData.phone,
           payerDocumentType: "CC",
           payerDocument: formData.document,
-          redirectionUrl: window.location.origin + "/comfort-360",
+          redirectionUrl: window.location.origin + "/checkout/success",
           renderMode: "embedded" 
         });
 
