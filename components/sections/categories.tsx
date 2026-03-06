@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, ReactNode } from "react";
-import Image from "next/image";
 import {
   Scissors,
   Layers,
@@ -18,15 +17,15 @@ import {
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import ImageModal from "@/components/ui/image-modal";
 
+const DOMAIN = "https://insumos360.com";
+
 const CategoryBackground = ({ src, alt }: { src: string; alt: string }) => (
   <div className="absolute inset-0 w-full h-full overflow-hidden">
-    <Image
+    <img
       src={src}
       alt={alt}
-      fill
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-      priority={false}
+      loading="lazy"
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
     />
     <div className="absolute inset-0 bg-black/20 pointer-events-none" />
     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-90 pointer-events-none" />
@@ -53,10 +52,10 @@ export default function Categories() {
       Icon: Layers,
       name: "Herrajes",
       description: "Hebillas, argollas y mosquetones de alta resistencia.",
-      href: "/catalogos/catalogo-herrajes.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-herrajes.pdf`,
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src="/images/herrajes.png" alt="Herrajes" />
+        <CategoryBackground src={`${DOMAIN}/images/herrajes.png`} alt="Herrajes" />
       ),
       className: "md:col-span-1",
     },
@@ -64,11 +63,11 @@ export default function Categories() {
       Icon: CircleDot,
       name: "Botones Tendencia",
       description: "Diseños vanguardistas que definen la temporada.",
-      href: "/catalogos/catalogo-botones-tendencia.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-botones-tendencia.pdf`,
       cta: "Ver Catálogo",
       background: (
         <CategoryBackground
-          src="/images/botones-tendencia.png"
+          src={`${DOMAIN}/images/botones-tendencia.png`}
           alt="Botones Tendencia"
         />
       ),
@@ -78,11 +77,11 @@ export default function Categories() {
       Icon: Disc,
       name: "Botón de línea",
       description: "Colección clásica para toda ocasión.",
-      href: "/catalogos/catalogo-botones-general.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-botones-general.pdf`,
       cta: "Ver Catálogo",
       background: (
         <CategoryBackground
-          src="/images/botones-general.png"
+          src={`${DOMAIN}/images/botones-general.png`}
           alt="Botones General"
         />
       ),
@@ -92,10 +91,10 @@ export default function Categories() {
       Icon: Anchor,
       name: "Botones de Hilo",
       description: "Elegancia textil y texturas naturales.",
-      href: "/catalogos/catalogo-botones-hilo.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-botones-hilo.pdf`,
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src="/images/botones-hilo.png" alt="Botones Hilo" />
+        <CategoryBackground src={`${DOMAIN}/images/botones-hilo.png`} alt="Botones Hilo" />
       ),
       className: "md:col-span-1",
     },
@@ -103,10 +102,10 @@ export default function Categories() {
       Icon: Sparkles,
       name: "Apliques",
       description: "Detalles bordados y pedrería exclusivos.",
-      href: "/catalogos/catalogo-apliques.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-apliques.pdf`,
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src="/images/apliques.png" alt="Apliques" />
+        <CategoryBackground src={`${DOMAIN}/images/apliques.png`} alt="Apliques" />
       ),
       className: "md:col-span-1",
     },
@@ -117,7 +116,7 @@ export default function Categories() {
       href: "#",
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src="/images/encajes.png" alt="Encajes" />
+        <CategoryBackground src={`${DOMAIN}/images/encajes.png`} alt="Encajes" />
       ),
       className: "md:col-span-1",
       action: "alert",
@@ -126,10 +125,10 @@ export default function Categories() {
       Icon: Palette,
       name: "Guipiur",
       description: "Tejidos estructurados de alta calidad.",
-      href: "/catalogos/catalogo-guipiur.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-guipiur.pdf`,
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src="/images/guipiur.png" alt="Guipiur" />
+        <CategoryBackground src={`${DOMAIN}/images/guipiur.png`} alt="Guipiur" />
       ),
       className: "md:col-span-1",
     },
@@ -137,10 +136,10 @@ export default function Categories() {
       Icon: PenTool,
       name: "Hebillas",
       description: "Cierres metálicos funcionales.",
-      href: "/catalogos/catalogo-hebillas.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-hebillas.pdf`,
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src="/images/hebillas.png" alt="Hebillas" />
+        <CategoryBackground src={`${DOMAIN}/images/hebillas.png`} alt="Hebillas" />
       ),
       className: "md:col-span-1",
     },
@@ -148,19 +147,19 @@ export default function Categories() {
       Icon: Gem,
       name: "Strass",
       description: "Cristales y brillo para acabados de lujo.",
-      href: "/catalogos/catalogo-strass.pdf",
+      href: `${DOMAIN}/catalogos/catalogo-strass.pdf`,
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/strass.png" alt="Strass" />,
+      background: <CategoryBackground src={`${DOMAIN}/images/strass.png`} alt="Strass" />,
       className: "md:col-span-1",
     },
     {
       Icon: Ruler,
       name: "Guía de Medidas",
       description: "Referencia técnica de tamaños.",
-      href: "/catalogos/medidas-botones.png",
+      href: `${DOMAIN}/catalogos/medidas-botones.png`,
       cta: "Ver Medidas",
       background: (
-        <CategoryBackground src="/images/medidas.png" alt="Guía Medidas" />
+        <CategoryBackground src={`${DOMAIN}/images/medidas.png`} alt="Guía Medidas" />
       ),
       className: "md:col-span-1",
       action: "modal",

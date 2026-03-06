@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { User, Briefcase, TrendingUp, Settings, Palette } from "lucide-react";
+
+const DOMAIN = "https://insumos360.com";
 
 export default function Organigrama() {
   const departments = [
@@ -12,12 +13,12 @@ export default function Organigrama() {
         {
           name: "Norma Linares",
           role: "Directora",
-          img: "/images/team/norma.jpg",
+          img: `${DOMAIN}/organigrama/norma-linares.jpg`,
         },
         {
           name: "Angie Torres",
           role: "Coordinadora",
-          img: "/images/team/angie.jpg",
+          img: `${DOMAIN}/organigrama/angie-torres.jpg`,
         },
       ],
     },
@@ -28,7 +29,7 @@ export default function Organigrama() {
         {
           name: "Mauricio Lozada",
           role: "Director Comercial",
-          img: "/images/team/mauricio.jpg",
+          img: `${DOMAIN}/organigrama/mauricio-lozada.jpg`,
         },
       ],
     },
@@ -39,16 +40,15 @@ export default function Organigrama() {
         {
           name: "Dayanna Linares",
           role: "Directora de Operaciones",
-          img: "/images/team/dayanna.jpg",
+          img: `${DOMAIN}/organigrama/dayana-linares.jpg`,
         },
         {
           name: "Cristina Poblador",
           role: "Coordinadora",
-          img: "/images/team/cristina.jpg",
+          img: `${DOMAIN}/organigrama/cristina-poblador.jpg`,
         },
       ],
     }
-
   ];
 
   return (
@@ -106,10 +106,22 @@ export default function Organigrama() {
                     className="flex flex-col items-center p-4 bg-gray-50 rounded-2xl border border-gray-100/50"
                   >
                     <div className="relative w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-white shadow-md bg-gray-200 flex items-center justify-center">
-                      <User className="w-8 h-8 text-gray-400" />
+                      {member.img ? (
+                        <img 
+                          src={member.img} 
+                          alt={member.name} 
+                          loading="lazy" 
+                          className="w-full h-full object-cover" 
+                        />
+                      ) : (
+                        <User className="w-8 h-8 text-gray-400" />
+                      )}
                     </div>
                     <p className="font-bold text-navy-900 text-[15px]">
                       {member.name}
+                    </p>
+                    <p className="text-xs font-medium text-gray-500 mt-0.5">
+                      {member.role}
                     </p>
                   </div>
                 ))}
