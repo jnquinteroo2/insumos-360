@@ -19,10 +19,12 @@ model Product {
 }
 
 model Order {
-  id            String      @id @default(uuid())
+  id            String      @id
   customerName  String
   customerEmail String
   customerPhone String
+  address       String
+  document      String
   total         Float
   status        String      @default("PENDING")
   boldPaymentId String?
