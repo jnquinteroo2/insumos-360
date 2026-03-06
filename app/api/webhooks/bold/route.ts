@@ -72,7 +72,7 @@ export async function POST(req: Request) {
 
         try {
           const { data, error } = await resend.emails.send({
-            from: 'Insumos 360 Pro <ventas@insumos360pro.com>', 
+            from: 'Insumos 360 Pro <ventas@insumos360.com>', 
             to: destinatarios,
             subject: `Confirmacion de Pedido #${order.id} - Insumos 360 Pro`,
             html: emailHtml
