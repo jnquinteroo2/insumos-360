@@ -39,7 +39,8 @@ export async function POST(req: Request) {
           create: cartItems.map((item: any) => ({
             productId: Number(item.id),
             quantity: item.quantity,
-            price: item.price
+            price: item.price,
+            color: item.selectedColor
           }))
         }
       }

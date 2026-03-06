@@ -121,7 +121,7 @@ export default function CheckoutPage() {
               <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-2 hide-scrollbar">
                 {cart.map((item) => (
                   <div
-                    key={item.id}
+                    key={item.cartItemId}
                     className="flex gap-3 items-center bg-white p-3 rounded-2xl shadow-sm border border-gray-100"
                   >
                     <div className="relative h-14 w-14 md:h-16 md:w-16 rounded-lg bg-gradient-to-br from-navy-800 to-navy-950 flex-shrink-0 overflow-hidden flex items-center justify-center p-1 text-center">
@@ -132,27 +132,27 @@ export default function CheckoutPage() {
 
                     <div className="flex-grow space-y-0.5">
                       <p className="font-bold text-navy-900 text-sm leading-tight line-clamp-2">
-                        {item.name}
+                        {item.name} 
+                        <span className="text-gray-500 font-normal ml-1">({item.selectedColor})</span>
                       </p>
                       <div className="flex items-center gap-2 pt-1">
                         <span className="text-xs font-semibold text-gray-700 bg-gray-100 px-2 py-0.5 rounded-full">
                           Cant: {item.quantity}
                         </span>
                         <p className="font-bold text-gold-600 text-sm md:text-base">
-                          $
-                          {(item.price * item.quantity).toLocaleString("es-CO")}
+                          ${(item.price * item.quantity).toLocaleString("es-CO")}
                         </p>
                       </div>
                     </div>
 
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => removeFromCart(item.cartItemId)}
                       className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors flex-shrink-0"
                     >
                       <Trash2 size={18} />
                     </button>
                   </div>
-                ))}
+                ))} 
               </div>
 
               <div className="bg-navy-900 text-white p-4 md:p-6 rounded-2xl flex justify-between items-center mt-6 shadow-xl shadow-navy-900/10">

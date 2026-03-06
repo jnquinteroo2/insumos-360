@@ -6,7 +6,19 @@ import Footer from "@/components/sections/footer";
 export const dynamic = "force-dynamic";
 
 export default async function Comfort360Page() {
-  const products = await prisma.product.findMany();
+  const products = await prisma.product.findMany({
+    select: {
+      id: true,
+      name: true,
+      category: true,
+      description: true,
+      price: true,
+      image: true,
+      stock: true,
+      colors: true,
+      size: true
+    }
+  });
 
   return (
     <main className="min-h-screen bg-gray-50">

@@ -15,6 +15,8 @@ model Product {
   price       Float
   image       String
   stock       Int
+  colors      String?     
+  size        String?     
   orders      OrderItem[]
 }
 
@@ -38,6 +40,7 @@ model OrderItem {
   productId Int
   quantity  Int
   price     Float
+  color     String? 
   order     Order   @relation(fields: [orderId], references: [id])
   product   Product @relation(fields: [productId], references: [id])
 }
