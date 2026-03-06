@@ -12,7 +12,7 @@ async function main() {
         price: 82000,
         image: "/productos/cama-unicolor.jpg",
         stock: 15,
-        colors: "Unicolor",
+        colors: "Blanco, Negro, Gris",
         size: "100x190 cm (Sencilla)",
       },
       {
@@ -22,7 +22,7 @@ async function main() {
         price: 94050,
         image: "/productos/cama-unicolor.jpg",
         stock: 15,
-        colors: "Unicolor",
+        colors: "Blanco, Negro, Gris",
         size: "140x190 cm (Doble)",
       },
       {
@@ -32,7 +32,7 @@ async function main() {
         price: 103500,
         image: "/productos/cama-unicolor.jpg",
         stock: 15,
-        colors: "Unicolor",
+        colors: "Blanco, Negro, Gris",
         size: "160x190 cm (Extra Doble)",
       },
       {

@@ -2,7 +2,6 @@
 
 import { useCartStore, Product } from "@/store/cartStore";
 import { useState, useMemo, useRef, useEffect } from "react";
-import Image from "next/image";
 import ImageModal from "@/components/ui/image-modal";
 import { Search, Plus, Minus, Filter, ChevronDown, Check } from "lucide-react";
 
@@ -47,13 +46,16 @@ export default function ProductList({ products }: { products: Product[] }) {
     'Azul oscuro': '#5B7282',
     'Rojo': '#A31D27', 
     'Gris oscuro': '#434B54',
+    'Gris': '#4B5563', 
+    'Negro': '#111827',
     'Café': '#3F2A24',
-    'Gris claro': '#A5A4A9', 
+    'Cafe': '#3F2A24',
+    'Blanco': '#FFFFFF', 
+    'Gris claro': '#E4E4E7', 
     'Rosa': '#FED2D6',
     'Beige': '#B88A76',
     'Naranja': '#CC4C14',
     'Azul rey': '#1A4B9B',
-    'Blanco': '#FFFFFF', 
     'Combinado': 'linear-gradient(to right, #94A3B8, #F8FAFC)',
     'Surtidos': 'linear-gradient(to right, #0F172A, #F8FAFC, #64748B)',
     'Diseño Cocina': 'linear-gradient(to right, #D4AF37, #0A192F)'
@@ -110,8 +112,15 @@ export default function ProductList({ products }: { products: Product[] }) {
 
           return (
             <div key={baseName} className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col group">
-              <div className="relative h-56 cursor-pointer overflow-hidden" onClick={() => { setSelectedImage(currentProduct.image); setModalOpen(true); }}>
-                <Image src={currentProduct.image} alt={baseName} fill className="object-cover transition-transform group-hover:scale-105" />
+              <div className="relative h-56 cursor-pointer overflow-hidden bg-gray-100" onClick={() => { setSelectedImage(currentProduct.image); setModalOpen(true); }}>
+                {/* CAMBIO CLAVE AQUÍ ABAJO: Usamos <img> en lugar de <Image> */}
+                <img 
+                  src={currentProduct.image} 
+                  alt={baseName} 
+                  loading="lazy" 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
+                
                 {isAgotado && (
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10">
                     <span className="bg-red-600 text-white font-black px-4 py-1 rounded-lg transform -rotate-12">AGOTADO</span>
