@@ -47,18 +47,8 @@ export default function Organigrama() {
           img: "/images/team/cristina.jpg",
         },
       ],
-    },
-    {
-      title: "Marketing",
-      icon: <Palette className="h-6 w-6 text-gold-500" />,
-      members: [
-        {
-          name: "Agencia DOS 20",
-          role: "Aliado Estratégico",
-          img: "/images/team/dos20.jpg",
-        },
-      ],
-    },
+    }
+
   ];
 
   return (

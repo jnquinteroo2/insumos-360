@@ -77,7 +77,7 @@ export default function Hero() {
                 className="shadow-2xl shadow-gold-500/20 w-full h-full flex justify-center"
               >
                 <span className="text-navy-900 font-bold tracking-wide">
-                  Tienda Hogar
+                  Comfort 360
                 </span>
               </ShimmerButton>
             </Link>

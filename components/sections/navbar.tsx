@@ -35,7 +35,7 @@ export default function GlassNavbar() {
     { name: "Inicio", href: "/" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Categorías", href: "/categorias" },
-    { name: "Tienda Hogar", href: "/comfort-360", special: true },
+    { name: "Comfort 360", href: "/comfort-360", special: true },
     { name: "Contáctenos", href: "/contactenos" },
   ];
 

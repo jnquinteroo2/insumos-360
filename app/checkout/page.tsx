@@ -45,7 +45,7 @@ export default function CheckoutPage() {
       });
       const data = await res.json();
 
-      if (data.orderId && data.integritySignature) {
+    if (data.orderId && data.integritySignature) {
         const checkout = new window.BoldCheckout({
           orderId: data.orderId,
           currency: "COP",
@@ -57,7 +57,8 @@ export default function CheckoutPage() {
           payerPhone: formData.phone,
           payerDocumentType: "CC",
           payerDocument: formData.document,
-          redirectionUrl: window.location.origin + "/comfort-360"
+          redirectionUrl: window.location.origin + "/comfort-360",
+          renderMode: "embedded" 
         });
 
         checkout.open();
