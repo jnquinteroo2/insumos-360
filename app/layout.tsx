@@ -81,13 +81,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={cn(
-          playfair.variable,
-          montserrat.variable,
-          "antialiased font-body bg-background text-foreground overflow-x-hidden min-h-screen flex flex-col",
-        )}
-      >
+     <body
+      className={cn(
+        playfair.variable,
+        montserrat.variable,
+        "antialiased font-body bg-background text-foreground overflow-x-hidden min-h-screen flex flex-col",
+      )}
+    >
   {children}
 </body>
     </html>

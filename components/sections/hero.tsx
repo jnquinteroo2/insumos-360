@@ -16,7 +16,7 @@ export default function Hero() {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="none"
           poster="/images/hero-bg.png"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         >

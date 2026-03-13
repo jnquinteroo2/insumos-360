@@ -2,17 +2,8 @@
 
 import { useState, ReactNode } from "react";
 import {
-  Scissors,
-  Layers,
-  CircleDot,
-  Sparkles,
-  Gem,
-  PenTool,
-  Palette,
-  Ruler,
-  Anchor,
-  Disc,
-  LucideIcon,
+  Scissors, Layers, CircleDot, Sparkles, Gem,
+  PenTool, Palette, Ruler, Anchor, Disc, LucideIcon,
 } from "lucide-react";
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import ImageModal from "@/components/ui/image-modal";
@@ -30,31 +21,18 @@ const CategoryBackground = ({ src, alt }: { src: string; alt: string }) => (
   </div>
 );
 
-interface CategoryItem {
-  Icon: LucideIcon | React.ElementType;
-  name: string;
-  description: string;
-  href: string;
-  cta: string;
-  background: ReactNode;
-  className: string;
-  action?: string;
-}
-
 export default function Categories() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
-  const categories: CategoryItem[] = [
+  const categories = [
     {
       Icon: Layers,
       name: "Herrajes",
       description: "Hebillas, argollas y mosquetones de alta resistencia.",
       href: "/catalogos/catalogo-herrajes.pdf",
       cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground src="/images/herrajes.png" alt="Herrajes" />
-      ),
+      background: <CategoryBackground src="/images/herrajes.png" alt="Herrajes" />,
       className: "md:col-span-1",
     },
     {
@@ -63,12 +41,7 @@ export default function Categories() {
       description: "Diseños vanguardistas que definen la temporada.",
       href: "/catalogos/catalogo-botones-tendencia.pdf",
       cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground
-          src="/images/botones-tendencia.png"
-          alt="Botones Tendencia"
-        />
-      ),
+      background: <CategoryBackground src="/images/botones-tendencia.png" alt="Botones Tendencia" />,
       className: "md:col-span-2",
     },
     {
@@ -77,12 +50,7 @@ export default function Categories() {
       description: "Colección clásica para toda ocasión.",
       href: "/catalogos/catalogo-botones-general.pdf",
       cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground
-          src="/images/botones-general.png"
-          alt="Botones General"
-        />
-      ),
+      background: <CategoryBackground src="/images/botones-general.png" alt="Botones General" />,
       className: "md:col-span-1",
     },
     {
@@ -91,9 +59,7 @@ export default function Categories() {
       description: "Elegancia textil y texturas naturales.",
       href: "/catalogos/catalogo-botones-hilo.pdf",
       cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground src="/images/botones-hilo.png" alt="Botones Hilo" />
-      ),
+      background: <CategoryBackground src="/images/botones-hilo.png" alt="Botones Hilo" />,
       className: "md:col-span-1",
     },
     {
@@ -102,9 +68,7 @@ export default function Categories() {
       description: "Detalles bordados y pedrería exclusivos.",
       href: "/catalogos/catalogo-apliques.pdf",
       cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground src="/images/apliques.png" alt="Apliques" />
-      ),
+      background: <CategoryBackground src="/images/apliques.png" alt="Apliques" />,
       className: "md:col-span-1",
     },
     {
@@ -113,9 +77,7 @@ export default function Categories() {
       description: "Suavidad y diseño en encajes delicados.",
       href: "#",
       cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground src="/images/encajes.png" alt="Encajes" />
-      ),
+      background: <CategoryBackground src="/images/encajes.png" alt="Encajes" />,
       className: "md:col-span-1",
       action: "alert",
     },
@@ -125,20 +87,7 @@ export default function Categories() {
       description: "Tejidos estructurados de alta calidad.",
       href: "/catalogos/catalogo-guipiur.pdf",
       cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground src="/images/guipiur.png" alt="Guipiur" />
-      ),
-      className: "md:col-span-1",
-    },
-    {
-      Icon: PenTool,
-      name: "Hebillas",
-      description: "Cierres metálicos funcionales.",
-      href: "/catalogos/catalogo-hebillas.pdf",
-      cta: "Ver Catálogo",
-      background: (
-        <CategoryBackground src="/images/hebillas.png" alt="Hebillas" />
-      ),
+      background: <CategoryBackground src="/images/guipiur.png" alt="Guipiur" />,
       className: "md:col-span-1",
     },
     {
@@ -156,9 +105,7 @@ export default function Categories() {
       description: "Referencia técnica de tamaños.",
       href: "/catalogos/medidas-botones.png",
       cta: "Ver Medidas",
-      background: (
-        <CategoryBackground src="/images/medidas.png" alt="Guía Medidas" />
-      ),
+      background: <CategoryBackground src="/images/medidas.png" alt="Guía Medidas" />,
       className: "md:col-span-1",
       action: "modal",
     },
@@ -172,24 +119,14 @@ export default function Categories() {
             Nuestras Colecciones
           </h2>
           <div className="w-24 h-1 bg-gold-500 mx-auto rounded-full" />
-          <p className="text-navy-600 max-w-2xl mx-auto text-lg">
-            Explora nuestros catálogos especializados. Insumos seleccionados
-            para la alta confección.
-          </p>
         </div>
 
-        <BentoGrid className="auto-rows-[28rem] text-white drop-shadow-md [&_h3]:!text-white [&_p]:!text-gray-100 [&_p]:font-medium [&_svg]:!text-gold-400">
+        <BentoGrid className="auto-rows-[28rem] text-white">
           {categories.map((item, idx) => {
-            const isActionItem =
-              item.action === "modal" || item.action === "alert";
-
             const handleAction = (e?: any) => {
               e?.stopPropagation();
-
               if (item.action === "alert") {
-                alert(
-                  "Estamos actualizando nuestro catálogo de encajes. ¡Pronto estará disponible!",
-                );
+                alert("Estamos actualizando nuestro catálogo de encajes. ¡Pronto estará disponible!");
               } else if (item.action === "modal") {
                 setSelectedImage(item.href);
                 setModalOpen(true);
@@ -212,8 +149,8 @@ export default function Categories() {
                   href={item.href}
                   cta={item.cta}
                   background={<div className="hidden" />}
-                  className="h-full bg-transparent border-none shadow-none z-10 relative"
-                  onClick={isActionItem ? handleAction : undefined}
+                  className="h-full bg-transparent border-none z-10 relative"
+                  onClick={item.action ? handleAction : undefined}
                 />
               </div>
             );

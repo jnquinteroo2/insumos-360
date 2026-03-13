@@ -4,7 +4,7 @@ import { Phone, MapPin, Clock } from "lucide-react";
 
 export default function ContactenosPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 flex flex-col">
       <GlassNavbar />
 
       <div className="py-24 bg-navy-900 text-center">
@@ -17,7 +17,8 @@ export default function ContactenosPage() {
         </p>
       </div>
 
-      <div className="container mx-auto px-6 -mt-16 pb-24 relative z-10">
+      {/* Se añade la clase flex-grow para ocupar el espacio disponible */}
+      <div className="container mx-auto px-6 -mt-16 pb-24 relative z-10 flex-grow">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all border-t-4 border-gold-500">
             <div className="w-12 h-12 bg-navy-50 rounded-full flex items-center justify-center mb-6 text-navy-900">
@@ -28,7 +29,7 @@ export default function ContactenosPage() {
             </h3>
             <div className="space-y-4 text-gray-600 text-sm">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Carrera+13+%23+16-85+Bogotá"
+                href="https://maps.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block hover:bg-gray-50 p-2 -ml-2 rounded-lg transition-colors group"
@@ -40,7 +41,7 @@ export default function ContactenosPage() {
               </a>
 
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Carrera+10a+%23+10-73+Bogotá"
+                href="https://maps.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block hover:bg-gray-50 p-2 -ml-2 rounded-lg transition-colors group"
@@ -66,13 +67,13 @@ export default function ContactenosPage() {
             </h3>
             <div className="space-y-4 text-gray-600 text-sm flex flex-col">
               <a
-                href="tel:+573122036189"
+                href="tel:+573133719099"
                 className="hover:text-gold-600 transition-colors font-medium p-1"
               >
                 (+57) 313 371 9099
               </a>
               <a
-                href="tel:+573133719099"
+                href="tel:+573122036189"
                 className="hover:text-gold-600 transition-colors font-medium p-1"
               >
                 (+57) 312 203 6189
