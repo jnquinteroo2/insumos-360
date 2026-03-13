@@ -19,7 +19,7 @@ export default function Hero() {
           muted
           playsInline
           poster={`${DOMAIN}/images/hero-bg.png`}
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
         >
           <source src={`${DOMAIN}/videos/hero-video.mp4`} type="video/mp4" />
           <img
@@ -28,7 +28,7 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/50 to-navy-900/30 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-navy-900/30 to-transparent mix-blend-multiply" />
       </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
@@ -60,11 +60,11 @@ export default function Hero() {
             <Link href="/categorias" className="w-full sm:w-52">
               <ShimmerButton
                 shimmerColor="#FFFFFF"
-                background="#0A192F"
-                className="shadow-2xl shadow-navy-900/20 w-full h-full flex justify-center border border-white/20"
+                background="#D4AF37" 
+                className="shadow-2xl shadow-gold-500/20 w-full h-full flex justify-center border border-white/20"
               >
-                <span className="text-white font-bold tracking-wide">
-                  Insumos
+                <span className="text-navy-900 font-bold tracking-wide">
+                  Insumos 360
                 </span>
               </ShimmerButton>
             </Link>

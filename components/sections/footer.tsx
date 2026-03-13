@@ -41,8 +41,9 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Tu aliado estratégico en la cadena de suministro textil. Calidad
-              premium y despacho inmediato para potenciar tu marca.
+              Tu aliado estratégico en la cadena de suministro de insumos para
+              confección, calidad premium y despacho oportuno para potenciar tu
+              marca.
             </p>
 
             <div className="flex gap-4 pt-2">
@@ -210,7 +211,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:ventas@insumos360pro.com"
+                  href="mailto:administracion@insumos360pro.com"
                   className="flex items-center gap-3 group"
                 >
                   <Mail
@@ -218,7 +219,7 @@ export default function Footer() {
                     size={18}
                   />
                   <span className="text-gray-400 group-hover:text-gold-500 transition-colors">
-                    ventas@insumos360pro.com
+                    administracion@insumos360pro.com
                   </span>
                 </a>
               </li>

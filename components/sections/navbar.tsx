@@ -42,16 +42,12 @@ export default function GlassNavbar() {
   const isTransparent = isHome && !isScrolled;
 
   const navLinkClasses = (isSpecial = false) =>
-    cn(
-      "text-sm font-semibold transition-all duration-300",
-      isTransparent
-        ? isSpecial
-          ? "text-gold-400 hover:text-white"
-          : "text-white hover:text-gold-500"
-        : isSpecial
-          ? "text-gold-600 hover:text-navy-900"
-          : "text-navy-800 hover:text-gold-500",
-    );
+  cn(
+    "text-sm font-semibold transition-all duration-300",
+    isTransparent
+      ? "text-white hover:text-gold-500" 
+      : "text-navy-900 hover:text-gold-500" 
+  );
 
   return (
     <>
