@@ -17,8 +17,6 @@ import {
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import ImageModal from "@/components/ui/image-modal";
 
-const DOMAIN = "https://insumos360.com";
-
 const CategoryBackground = ({ src, alt }: { src: string; alt: string }) => (
   <div className="absolute inset-0 w-full h-full overflow-hidden">
     <img
@@ -52,10 +50,10 @@ export default function Categories() {
       Icon: Layers,
       name: "Herrajes",
       description: "Hebillas, argollas y mosquetones de alta resistencia.",
-      href: `${DOMAIN}/catalogos/catalogo-herrajes.pdf`,
+      href: "/catalogos/catalogo-herrajes.pdf",
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src={`${DOMAIN}/images/herrajes.png`} alt="Herrajes" />
+        <CategoryBackground src="/images/herrajes.png" alt="Herrajes" />
       ),
       className: "md:col-span-1",
     },
@@ -63,11 +61,11 @@ export default function Categories() {
       Icon: CircleDot,
       name: "Botones Tendencia",
       description: "Diseños vanguardistas que definen la temporada.",
-      href: `${DOMAIN}/catalogos/catalogo-botones-tendencia.pdf`,
+      href: "/catalogos/catalogo-botones-tendencia.pdf",
       cta: "Ver Catálogo",
       background: (
         <CategoryBackground
-          src={`${DOMAIN}/images/botones-tendencia.png`}
+          src="/images/botones-tendencia.png"
           alt="Botones Tendencia"
         />
       ),
@@ -77,11 +75,11 @@ export default function Categories() {
       Icon: Disc,
       name: "Botón de línea",
       description: "Colección clásica para toda ocasión.",
-      href: `${DOMAIN}/catalogos/catalogo-botones-general.pdf`,
+      href: "/catalogos/catalogo-botones-general.pdf",
       cta: "Ver Catálogo",
       background: (
         <CategoryBackground
-          src={`${DOMAIN}/images/botones-general.png`}
+          src="/images/botones-general.png"
           alt="Botones General"
         />
       ),
@@ -91,10 +89,10 @@ export default function Categories() {
       Icon: Anchor,
       name: "Botones de Hilo",
       description: "Elegancia textil y texturas naturales.",
-      href: `${DOMAIN}/catalogos/catalogo-botones-hilo.pdf`,
+      href: "/catalogos/catalogo-botones-hilo.pdf",
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src={`${DOMAIN}/images/botones-hilo.png`} alt="Botones Hilo" />
+        <CategoryBackground src="/images/botones-hilo.png" alt="Botones Hilo" />
       ),
       className: "md:col-span-1",
     },
@@ -102,10 +100,10 @@ export default function Categories() {
       Icon: Sparkles,
       name: "Apliques",
       description: "Detalles bordados y pedrería exclusivos.",
-      href: `${DOMAIN}/catalogos/catalogo-apliques.pdf`,
+      href: "/catalogos/catalogo-apliques.pdf",
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src={`${DOMAIN}/images/apliques.png`} alt="Apliques" />
+        <CategoryBackground src="/images/apliques.png" alt="Apliques" />
       ),
       className: "md:col-span-1",
     },
@@ -116,7 +114,7 @@ export default function Categories() {
       href: "#",
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src={`${DOMAIN}/images/encajes.png`} alt="Encajes" />
+        <CategoryBackground src="/images/encajes.png" alt="Encajes" />
       ),
       className: "md:col-span-1",
       action: "alert",
@@ -125,10 +123,10 @@ export default function Categories() {
       Icon: Palette,
       name: "Guipiur",
       description: "Tejidos estructurados de alta calidad.",
-      href: `${DOMAIN}/catalogos/catalogo-guipiur.pdf`,
+      href: "/catalogos/catalogo-guipiur.pdf",
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src={`${DOMAIN}/images/guipiur.png`} alt="Guipiur" />
+        <CategoryBackground src="/images/guipiur.png" alt="Guipiur" />
       ),
       className: "md:col-span-1",
     },
@@ -136,10 +134,10 @@ export default function Categories() {
       Icon: PenTool,
       name: "Hebillas",
       description: "Cierres metálicos funcionales.",
-      href: `${DOMAIN}/catalogos/catalogo-hebillas.pdf`,
+      href: "/catalogos/catalogo-hebillas.pdf",
       cta: "Ver Catálogo",
       background: (
-        <CategoryBackground src={`${DOMAIN}/images/hebillas.png`} alt="Hebillas" />
+        <CategoryBackground src="/images/hebillas.png" alt="Hebillas" />
       ),
       className: "md:col-span-1",
     },
@@ -147,19 +145,19 @@ export default function Categories() {
       Icon: Gem,
       name: "Strass",
       description: "Cristales y brillo para acabados de lujo.",
-      href: `${DOMAIN}/catalogos/catalogo-strass.pdf`,
+      href: "/catalogos/catalogo-strass.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src={`${DOMAIN}/images/strass.png`} alt="Strass" />,
+      background: <CategoryBackground src="/images/strass.png" alt="Strass" />,
       className: "md:col-span-1",
     },
     {
       Icon: Ruler,
       name: "Guía de Medidas",
       description: "Referencia técnica de tamaños.",
-      href: `${DOMAIN}/catalogos/medidas-botones.png`,
+      href: "/catalogos/medidas-botones.png",
       cta: "Ver Medidas",
       background: (
-        <CategoryBackground src={`${DOMAIN}/images/medidas.png`} alt="Guía Medidas" />
+        <CategoryBackground src="/images/medidas.png" alt="Guía Medidas" />
       ),
       className: "md:col-span-1",
       action: "modal",

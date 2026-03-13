@@ -85,11 +85,11 @@ export default function RootLayout({
         className={cn(
           playfair.variable,
           montserrat.variable,
-          "antialiased font-body bg-background text-foreground overflow-x-hidden",
+          "antialiased font-body bg-background text-foreground overflow-x-hidden min-h-screen flex flex-col",
         )}
       >
-        {children}
-      </body>
+  {children}
+</body>
     </html>
   );
 }

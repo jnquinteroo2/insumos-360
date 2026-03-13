@@ -4,8 +4,6 @@ import Link from "next/link";
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import WordRotate from "@/components/magicui/word-rotate";
 
-const DOMAIN = "https://insumos360.com";
-
 export default function Hero() {
   return (
     <section
@@ -18,12 +16,13 @@ export default function Hero() {
           loop
           muted
           playsInline
-          poster={`${DOMAIN}/images/hero-bg.png`}
+          preload="auto"
+          poster="/images/hero-bg.png"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         >
-          <source src={`${DOMAIN}/videos/hero-video.mp4`} type="video/mp4" />
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
           <img
-            src={`${DOMAIN}/images/hero-bg.png`}
+            src="/images/hero-bg.png"
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -60,7 +59,7 @@ export default function Hero() {
             <Link href="/categorias" className="w-full sm:w-52">
               <ShimmerButton
                 shimmerColor="#FFFFFF"
-                background="#D4AF37" 
+                background="#D4AF37"
                 className="shadow-2xl shadow-gold-500/20 w-full h-full flex justify-center border border-white/20"
               >
                 <span className="text-navy-900 font-bold tracking-wide">
