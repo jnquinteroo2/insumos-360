@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-export const revalidate = 300;
-
 export async function GET() {
   try {
     const products = await prisma.product.findMany({
@@ -21,7 +19,7 @@ export async function GET() {
 
     return NextResponse.json(products, {
       headers: {
-        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=7200",
       },
     });
   } catch {
