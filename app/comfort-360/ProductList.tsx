@@ -168,7 +168,23 @@ export default function ProductList() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredGroupNames.map(baseName => {
           const variants = groupedProducts[baseName];
-          const uniqueVariants = Array.from(new Map(variants.map(v => [v.size || 'Estándar', v])).values());
+          
+          // Agrupar por size y sumar stocks de variantes duplicadas
+          const variantsBySize = new Map<string, Product>();
+          variants.forEach(v => {
+            const sizeKey = v.size || 'Estándar';
+            const existing = variantsBySize.get(sizeKey);
+            if (existing) {
+              // Sumar stock, mantener el precio más bajo
+              variantsBySize.set(sizeKey, {
+                ...existing,
+                stock: existing.stock + v.stock,
+              });
+            } else {
+              variantsBySize.set(sizeKey, { ...v });
+            }
+          });
+          const uniqueVariants = Array.from(variantsBySize.values());
           
           const selectedVariantId = selectedVariants[baseName] || uniqueVariants[0].id;
           const currentProduct = uniqueVariants.find(v => v.id === selectedVariantId) || uniqueVariants[0];
