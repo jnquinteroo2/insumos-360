@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 import GlassNavbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function Comfort360Page() {
   try {
@@ -37,15 +37,15 @@ export default async function Comfort360Page() {
       </main>
     );
   } catch (error) {
-  return (
-    <main className="min-h-screen bg-gray-50 flex flex-col">
-      <GlassNavbar />
-      <div className="flex-grow flex flex-col items-center justify-center pt-40">
-        <h2 className="text-2xl font-bold text-navy-900">Catálogo temporalmente no disponible</h2>
-        <p className="text-gray-500 mt-2">Recarga tu página o inténtalo de nuevo en unos minutos.</p>
-      </div>
-      <Footer />
-    </main>
-  );
-}
+    return (
+      <main className="min-h-screen bg-gray-50 flex flex-col">
+        <GlassNavbar />
+        <div className="flex-grow flex flex-col items-center justify-center pt-40">
+          <h2 className="text-2xl font-bold text-navy-900">Catálogo temporalmente no disponible</h2>
+          <p className="text-gray-500 mt-2">Recarga tu página o inténtalo de nuevo en unos minutos.</p>
+        </div>
+        <Footer />
+      </main>
+    );
+  }
 }
