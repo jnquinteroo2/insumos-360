@@ -1,32 +1,49 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import WordRotate from "@/components/magicui/word-rotate";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.src = "/videos/hero-video.mp4";
+        videoRef.current.load();
+        setVideoLoaded(true);
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section
       id="hero"
       className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-navy-900 text-white"
     >
       <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-bg.png"
+          alt="Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-70"
+        />
         <video
-          autoPlay
-          loop
+          ref={videoRef}
           muted
           playsInline
+          loop
+          autoPlay
           preload="none"
-          poster="/images/hero-bg.png"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-        >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-          <img
-            src="/images/hero-bg.png"
-            alt="Background"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </video>
+          className={`absolute inset-0 w-full h-full object-cover opacity-70 transition-opacity duration-700 ${videoLoaded ? "opacity-70" : "opacity-0"}`}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-navy-900/30 to-transparent mix-blend-multiply" />
       </div>
 

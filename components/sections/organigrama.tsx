@@ -1,55 +1,55 @@
 "use client";
 
-import { User, Briefcase, TrendingUp, Settings, Palette } from "lucide-react";
-
-const DOMAIN = "https://insumos360.com";
+import Image from "next/image";
+import { User, Briefcase, TrendingUp, Settings } from "lucide-react";
 
 export default function Organigrama() {
-const departments = [
-  {
-    title: "Administrativo y Financiero",
-    icon: <Briefcase className="h-6 w-6 text-gold-500" />,
-    members: [
-      {
-        name: "Norma Linares",
-        role: "Directora",
-        img: `${DOMAIN}/organigrama/norma-linares.jpg`,
-      },
-      {
-        name: "Angie Torres",
-        role: "Coordinadora",
-        img: `${DOMAIN}/organigrama/angie-torres.jpg`,
-      },
-    ],
-  },
-  {
-    title: "Comercial y Ventas",
-    icon: <TrendingUp className="h-6 w-6 text-gold-500" />,
-    members: [
-      {
-        name: "Mauricio Lozada",
-        role: "Director Comercial",
-        img: `${DOMAIN}/organigrama/mauricio-lozada.jpg`,
-      },
-      {
-        name: "Dayanna Linares",
-        role: "Directora de Ventas",
-        img: `${DOMAIN}/organigrama/dayana-linares.jpg`, 
-      },
-    ],
-  },
-  {
-    title: "Operativo y Logística",
-    icon: <Settings className="h-6 w-6 text-gold-500" />,
-    members: [
-      {
-        name: "Cristina Poblador",
-        role: "Coordinadora",
-        img: `${DOMAIN}/organigrama/cristina-poblador.jpg`,
-      },
-    ],
-  }
-];
+  const departments = [
+    {
+      title: "Administrativo y Financiero",
+      icon: <Briefcase className="h-6 w-6 text-gold-500" />,
+      members: [
+        {
+          name: "Norma Linares",
+          role: "Directora",
+          img: "/organigrama/norma-linares.jpg",
+        },
+        {
+          name: "Angie Torres",
+          role: "Coordinadora",
+          img: "/organigrama/angie-torres.jpg",
+        },
+      ],
+    },
+    {
+      title: "Comercial y Ventas",
+      icon: <TrendingUp className="h-6 w-6 text-gold-500" />,
+      members: [
+        {
+          name: "Mauricio Lozada",
+          role: "Director Comercial",
+          img: "/organigrama/mauricio-lozada.jpg",
+        },
+        {
+          name: "Dayanna Linares",
+          role: "Directora de Ventas",
+          img: "/organigrama/dayana-linares.jpg",
+        },
+      ],
+    },
+    {
+      title: "Operativo y Logística",
+      icon: <Settings className="h-6 w-6 text-gold-500" />,
+      members: [
+        {
+          name: "Cristina Poblador",
+          role: "Coordinadora",
+          img: "/organigrama/cristina-poblador.jpg",
+        },
+      ],
+    },
+  ];
+
   return (
     <section className="py-20 bg-gray-50/50">
       <div className="container mx-auto px-6">
@@ -106,11 +106,13 @@ const departments = [
                   >
                     <div className="relative w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-white shadow-md bg-gray-200 flex items-center justify-center">
                       {member.img ? (
-                        <img 
-                          src={member.img} 
-                          alt={member.name} 
-                          loading="lazy" 
-                          className="w-full h-full object-cover" 
+                        <Image
+                          src={member.img}
+                          alt={member.name}
+                          fill
+                          sizes="80px"
+                          className="object-cover"
+                          loading="lazy"
                         />
                       ) : (
                         <User className="w-8 h-8 text-gray-400" />

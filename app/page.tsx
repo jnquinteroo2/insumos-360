@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import GlassNavbar from "@/components/sections/navbar";
 import Hero from "@/components/sections/hero";
@@ -11,7 +11,6 @@ import { motion, useInView } from "framer-motion";
 import NumberTicker from "../components/magicui/number-ticker";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-import colombiaAnimation from "../public/animations/Colombia.json";
 
 const FadeInSection = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef(null);
@@ -28,6 +27,29 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => {
     </motion.div>
   );
 };
+
+function LazyLottieMap() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "200px" });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [animationData, setAnimationData] = useState<any>(null);
+
+  useEffect(() => {
+    if (isInView && !animationData) {
+      import("../public/animations/Colombia.json").then((mod) => {
+        setAnimationData(mod.default);
+      });
+    }
+  }, [isInView, animationData]);
+
+  return (
+    <div ref={ref} className="w-full max-w-lg mx-auto" style={{ minHeight: 400 }}>
+      {animationData && (
+        <Lottie animationData={animationData} loop={true} className="w-full" />
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -65,8 +87,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('/images/noise.png')] mix-blend-overlay"></div>
       </section>
 
       <FadeInSection>
@@ -162,11 +182,7 @@ export default function Home() {
 
               <div className="md:w-1/2 relative">
                 <div className="relative z-10 filter drop-shadow-[0_0_50px_rgba(212,175,55,0.15)] transform hover:scale-105 transition-transform duration-700">
-                  <Lottie
-                    animationData={colombiaAnimation}
-                    loop={true}
-                    className="w-full max-w-lg mx-auto"
-                  />
+                  <LazyLottieMap />
                 </div>
 
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gold-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -216,7 +232,6 @@ export default function Home() {
       >
         <div className="relative w-16 h-16 bg-[#075E54] group-hover:bg-[#25D366] rounded-full shadow-[0_10px_30px_rgba(7,94,84,0.3)] flex items-center justify-center transition-all duration-500 hover:scale-110">
           <div className="absolute inset-0 rounded-full bg-[#25D366] scale-100 animate-ping opacity-20 pointer-events-none"></div>
-
           <svg
             width="30"
             height="30"

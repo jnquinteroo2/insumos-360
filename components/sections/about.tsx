@@ -1,8 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { BorderBeam } from "@/components/magicui/border-beam";
-
-const DOMAIN = "https://insumos360.com";
 
 export default function About() {
   return (
@@ -10,12 +9,14 @@ export default function About() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="w-full lg:w-1/2 relative group">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-              <img
-                src={`${DOMAIN}/images/about.png`}
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.01] aspect-[4/3]">
+              <Image
+                src="/images/about.png"
                 alt="Bodega de Insumos Textiles Insumos 360 Pro"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
                 loading="lazy"
-                className="w-full h-auto object-cover"
               />
               <BorderBeam
                 size={300}

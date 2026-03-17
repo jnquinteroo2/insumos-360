@@ -1,20 +1,23 @@
 "use client";
 
-import { useState, ReactNode } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import {
   Scissors, Layers, CircleDot, Sparkles, Gem,
-  PenTool, Palette, Ruler, Anchor, Disc, LucideIcon,
+  Palette, Ruler, Anchor, Disc,
 } from "lucide-react";
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import ImageModal from "@/components/ui/image-modal";
 
 const CategoryBackground = ({ src, alt }: { src: string; alt: string }) => (
   <div className="absolute inset-0 w-full h-full overflow-hidden">
-    <img
+    <Image
       src={src}
       alt={alt}
+      fill
+      sizes="(max-width: 768px) 100vw, 33vw"
+      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
       loading="lazy"
-      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
     />
     <div className="absolute inset-0 bg-black/20 pointer-events-none" />
     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-90 pointer-events-none" />
