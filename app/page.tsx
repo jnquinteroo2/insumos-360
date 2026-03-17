@@ -31,7 +31,6 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => {
 function LazyLottieMap() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "200px" });
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
