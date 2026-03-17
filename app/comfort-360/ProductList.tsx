@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useCartStore, Product } from "@/store/cartStore";
 import { useState, useMemo, useRef, useEffect } from "react";
 import ImageModal from "@/components/ui/image-modal";
@@ -154,13 +153,12 @@ export default function ProductList({ products }: { products: Product[] }) {
                   setModalOpen(true);
                 }}
               >
-                <Image
+                <img
                   src={currentProduct.image}
                   alt={baseName}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
                 {isAgotado && (
