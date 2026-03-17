@@ -27,15 +27,26 @@ export default function ProductList() {
   const filterRef = useRef<HTMLDivElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const fetchProducts = () => {
     fetch("/api/products")
       .then((res) => {
         if (!res.ok) throw new Error("Error");
         return res.json();
       })
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+        setHasError(false);
+      })
       .catch(() => setHasError(true))
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    fetchProducts();
+
+    const onFocus = () => fetchProducts();
+    window.addEventListener("focus", onFocus);
+    return () => window.removeEventListener("focus", onFocus);
   }, []);
 
   const groupedProducts = useMemo(() => {

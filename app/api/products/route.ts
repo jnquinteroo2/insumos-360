@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const products = await prisma.product.findMany({
@@ -19,7 +21,7 @@ export async function GET() {
 
     return NextResponse.json(products, {
       headers: {
-        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=7200",
+        "Cache-Control": "no-store",
       },
     });
   } catch {
