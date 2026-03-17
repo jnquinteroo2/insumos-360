@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
 const TikTokIcon = ({
@@ -31,12 +30,10 @@ export default function Footer() {
           <div className="space-y-6">
             <Link href="/" className="block">
               <div className="relative h-16 w-48">
-                <Image
+                <img
                   src="/images/logo.png"
                   alt="Insumos 360 Pro"
-                  fill
-                  className="object-contain object-left"
-                  priority
+                  className="object-contain object-left h-full w-full"
                 />
               </div>
             </Link>

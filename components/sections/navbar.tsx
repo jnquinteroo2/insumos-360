@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X, ShoppingCart } from "lucide-react";
@@ -64,13 +63,12 @@ export default function GlassNavbar() {
             href="/"
             className="relative h-9 md:h-12 w-fit flex items-center shrink-0"
           >
-            <Image
+            <img
               src="/images/logo.png"
               alt="Insumos 360 Logo"
               width={160}
               height={40}
               className="object-contain h-full w-auto"
-              priority
             />
           </Link>
 
@@ -152,7 +150,7 @@ export default function GlassNavbar() {
               className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-navy-900 z-[70] lg:hidden shadow-2xl flex flex-col border-l border-white/10"
             >
               <div className="flex items-center justify-between p-6 border-b border-white/10">
-                <Image
+                <img
                   src="/images/logo.png"
                   alt="Logo"
                   width={120}

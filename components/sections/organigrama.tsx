@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { User, Briefcase, TrendingUp, Settings } from "lucide-react";
 
 export default function Organigrama() {
@@ -106,13 +105,12 @@ export default function Organigrama() {
                   >
                     <div className="relative w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-white shadow-md bg-gray-200 flex items-center justify-center">
                       {member.img ? (
-                        <Image
+                        <img
                           src={member.img}
                           alt={member.name}
-                          fill
-                          sizes="80px"
-                          className="object-cover"
                           loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover"
                         />
                       ) : (
                         <User className="w-8 h-8 text-gray-400" />

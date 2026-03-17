@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import WordRotate from "@/components/magicui/word-rotate";
@@ -27,13 +26,11 @@ export default function Hero() {
       className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-navy-900 text-white"
     >
       <div className="absolute inset-0 z-0">
-        <Image
+        <img
           src="/images/hero-bg.png"
           alt="Background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-70"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
         />
         <video
           ref={videoRef}
