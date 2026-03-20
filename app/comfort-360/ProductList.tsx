@@ -169,13 +169,11 @@ export default function ProductList() {
         {filteredGroupNames.map(baseName => {
           const variants = groupedProducts[baseName];
           
-          // Agrupar por size y sumar stocks de variantes duplicadas
           const variantsBySize = new Map<string, Product>();
           variants.forEach(v => {
             const sizeKey = v.size || 'Estándar';
             const existing = variantsBySize.get(sizeKey);
             if (existing) {
-              // Sumar stock, mantener el precio más bajo
               variantsBySize.set(sizeKey, {
                 ...existing,
                 stock: existing.stock + v.stock,
