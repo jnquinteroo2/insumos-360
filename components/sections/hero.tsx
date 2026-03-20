@@ -30,7 +30,7 @@ export default function Hero() {
           src="/images/hero-bg.png"
           alt="Background"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? "opacity-0" : "opacity-80"}`}
         />
         <video
           ref={videoRef}
@@ -39,9 +39,9 @@ export default function Hero() {
           loop
           autoPlay
           preload="none"
-          className={`absolute inset-0 w-full h-full object-cover opacity-70 transition-opacity duration-700 ${videoLoaded ? "opacity-70" : "opacity-0"}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? "opacity-80" : "opacity-0"}`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-navy-900/30 to-transparent mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-navy-900/30 to-navy-900/10" />
       </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
