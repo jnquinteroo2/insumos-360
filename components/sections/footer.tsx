@@ -31,7 +31,7 @@ export default function Footer() {
             <Link href="/" className="block">
               <div className="relative h-16 w-48">
                 <img
-                  src="/images/logo.png"
+                  src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256621/logo_hz0s5v.png"
                   alt="Insumos 360 Pro"
                   className="object-contain object-left h-full w-full"
                 />

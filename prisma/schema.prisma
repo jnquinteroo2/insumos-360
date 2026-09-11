@@ -15,9 +15,11 @@ model Product {
   price       Float
   image       String
   stock       Int
-  colors      String?     
-  size        String?     
+  colors      String?
+  size        String?
   orders      OrderItem[]
+
+  @@index([category])
 }
 
 model Order {
@@ -32,6 +34,8 @@ model Order {
   boldPaymentId String?
   items         OrderItem[]
   createdAt     DateTime    @default(now())
+
+  @@index([status])
 }
 
 model OrderItem {

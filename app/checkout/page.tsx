@@ -31,11 +31,13 @@ export default function CheckoutPage() {
     address: "",
   });
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
     if (cart.length === 0) return;
     setLoading(true);
+    setErrorMessage(null);
 
     try {
       const res = await fetch("/api/checkout", {
@@ -44,6 +46,17 @@ export default function CheckoutPage() {
         body: JSON.stringify({ cartItems: cart, customerInfo: formData }),
       });
       const data = await res.json();
+
+      if (!res.ok) {
+        const details =
+          Array.isArray(data.details) && data.details.length > 0
+            ? `: ${data.details.join(", ")}`
+            : "";
+        setErrorMessage(
+          `${data.error || "No pudimos procesar tu pedido."}${details}`
+        );
+        return;
+      }
 
     if (data.orderId && data.integritySignature) {
         const checkout = new window.BoldCheckout({
@@ -227,6 +240,12 @@ export default function CheckoutPage() {
                   }
                 />
               </div>
+
+              {errorMessage && (
+                <div className="w-full bg-red-50 border border-red-200 text-red-700 text-sm font-medium rounded-xl p-3">
+                  {errorMessage}
+                </div>
+              )}
 
               <button
                 type="submit"

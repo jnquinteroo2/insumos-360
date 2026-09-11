@@ -2,6 +2,13 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { prisma } from '@/lib/prisma';
 
+class InsufficientStockError extends Error {
+  constructor(public details: string[]) {
+    super('Stock insuficiente');
+    this.name = 'InsufficientStockError';
+  }
+}
+
 export async function POST(req: Request) {
   try {
     const { cartItems, customerInfo } = await req.json();
@@ -68,26 +75,52 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Server Configuration Error' }, { status: 500 });
     }
 
-    await prisma.order.create({
-      data: {
-        id: orderId,
-        customerName: customerInfo.name,
-        customerEmail: customerInfo.email,
-        customerPhone: customerInfo.phone,
-        address: customerInfo.address,
-        document: customerInfo.document,
-        total: totalAmount,
-        status: 'PENDING',
-        items: {
-          create: cartItems.map((item: any) => ({
-            productId: Number(item.id),
-            quantity: item.quantity,
-            price: productMap.get(Number(item.id))!.price,
-            color: item.selectedColor,
-          })),
-        },
-      },
-    });
+    try {
+      await prisma.$transaction(async (tx) => {
+        for (const item of cartItems) {
+          const product = productMap.get(Number(item.id))!;
+          const reserved = await tx.product.updateMany({
+            where: { id: product.id, stock: { gte: item.quantity } },
+            data: { stock: { decrement: item.quantity } },
+          });
+
+          if (reserved.count === 0) {
+            throw new InsufficientStockError([
+              `${product.name} (disponible: ${product.stock}, solicitado: ${item.quantity})`,
+            ]);
+          }
+        }
+
+        await tx.order.create({
+          data: {
+            id: orderId,
+            customerName: customerInfo.name,
+            customerEmail: customerInfo.email,
+            customerPhone: customerInfo.phone,
+            address: customerInfo.address,
+            document: customerInfo.document,
+            total: totalAmount,
+            status: 'PENDING',
+            items: {
+              create: cartItems.map((item: any) => ({
+                productId: Number(item.id),
+                quantity: item.quantity,
+                price: productMap.get(Number(item.id))!.price,
+                color: item.selectedColor,
+              })),
+            },
+          },
+        });
+      });
+    } catch (err) {
+      if (err instanceof InsufficientStockError) {
+        return NextResponse.json(
+          { error: 'Stock insuficiente', details: err.details },
+          { status: 409 }
+        );
+      }
+      throw err;
+    }
 
     const signatureString = `${orderId}${totalAmount}${currency}${secretKey}`;
 

@@ -11,12 +11,12 @@ export default function Organigrama() {
         {
           name: "Norma Linares",
           role: "Directora",
-          img: "/organigrama/norma-linares.jpg",
+          img: "https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256639/norma-linares_bmyuj1.jpg",
         },
         {
           name: "Angie Torres",
           role: "Coordinadora",
-          img: "/organigrama/angie-torres.jpg",
+          img: "https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256640/angie-torres_kp4zzi.jpg",
         },
       ],
     },
@@ -27,12 +27,12 @@ export default function Organigrama() {
         {
           name: "Mauricio Lozada",
           role: "Director Comercial",
-          img: "/organigrama/mauricio-lozada.jpg",
+          img: "https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256636/mauricio-lozada_bm2fge.jpg",
         },
         {
           name: "Dayanna Linares",
           role: "Directora de Ventas",
-          img: "/organigrama/dayana-linares.jpg",
+          img: "https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256637/dayana-linares_glwqvo.jpg",
         },
       ],
     },
@@ -43,7 +43,7 @@ export default function Organigrama() {
         {
           name: "Cristina Poblador",
           role: "Coordinadora",
-          img: "/organigrama/cristina-poblador.jpg",
+          img: "https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256638/cristina-poblador_vnlcab.jpg",
         },
       ],
     },

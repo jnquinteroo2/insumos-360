@@ -12,7 +12,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (videoRef.current) {
-        videoRef.current.src = "/videos/hero-video.mp4";
+        videoRef.current.src = "https://res.cloudinary.com/dvrz5uflr/video/upload/f_auto,q_auto,vc_auto,w_1280,br_1M/v1785256663/hero-video_tfsw7t.mp4";
         videoRef.current.load();
         setVideoLoaded(true);
       }
@@ -27,7 +27,7 @@ export default function Hero() {
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg.png"
+          src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256623/hero-bg_e5gpu2.png"
           alt="Background"
           fetchPriority="high"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? "opacity-0" : "opacity-80"}`}

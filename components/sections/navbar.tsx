@@ -64,7 +64,7 @@ export default function GlassNavbar() {
             className="relative h-9 md:h-12 w-fit flex items-center shrink-0"
           >
             <img
-              src="/images/logo.png"
+              src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256621/logo_hz0s5v.png"
               alt="Insumos 360 Logo"
               width={160}
               height={40}
@@ -151,7 +151,7 @@ export default function GlassNavbar() {
             >
               <div className="flex items-center justify-between p-6 border-b border-white/10">
                 <img
-                  src="/images/logo.png"
+                  src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256621/logo_hz0s5v.png"
                   alt="Logo"
                   width={120}
                   height={30}

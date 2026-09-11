@@ -26,8 +26,14 @@ export default function ProductList() {
 
   const filterRef = useRef<HTMLDivElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
+  const lastFetchAtRef = useRef(0);
+  const isFetchingRef = useRef(false);
 
   const fetchProducts = () => {
+    if (isFetchingRef.current) return;
+    isFetchingRef.current = true;
+    lastFetchAtRef.current = Date.now();
+
     fetch("/api/products")
       .then((res) => {
         if (!res.ok) throw new Error("Error");
@@ -38,13 +44,20 @@ export default function ProductList() {
         setHasError(false);
       })
       .catch(() => setHasError(true))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        isFetchingRef.current = false;
+      });
   };
 
   useEffect(() => {
     fetchProducts();
 
-    const onFocus = () => fetchProducts();
+    const FOCUS_REFETCH_COOLDOWN_MS = 30_000;
+    const onFocus = () => {
+      if (Date.now() - lastFetchAtRef.current < FOCUS_REFETCH_COOLDOWN_MS) return;
+      fetchProducts();
+    };
     window.addEventListener("focus", onFocus);
     return () => window.removeEventListener("focus", onFocus);
   }, []);

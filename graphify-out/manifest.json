@@ -1,0 +1,477 @@
+{
+  "app/api/checkout/route.ts": {
+    "mtime": 1785261661.1183355,
+    "ast_hash": "4377b0fd12a141e991ac7fcd5f0374b9",
+    "semantic_hash": ""
+  },
+  "app/api/products/route.ts": {
+    "mtime": 1785257133.8565626,
+    "ast_hash": "abcd051837233cd313fa356d80a2b5f0",
+    "semantic_hash": ""
+  },
+  "app/api/webhooks/bold/route.ts": {
+    "mtime": 1785261779.90647,
+    "ast_hash": "e98b18bc3444b26daaec49fd693204a3",
+    "semantic_hash": ""
+  },
+  "app/categorias/page.tsx": {
+    "mtime": 1785255040.9794624,
+    "ast_hash": "e3f79b4e8db72dbe3a3502a2f106da18",
+    "semantic_hash": "e3f79b4e8db72dbe3a3502a2f106da18"
+  },
+  "app/checkout/page.tsx": {
+    "mtime": 1785261649.0657017,
+    "ast_hash": "8d4cdc942697b4faca2b772f4737307e",
+    "semantic_hash": ""
+  },
+  "app/checkout/success/page.tsx": {
+    "mtime": 1785255040.9800074,
+    "ast_hash": "383484af155c2217689b2f0c30649b03",
+    "semantic_hash": "383484af155c2217689b2f0c30649b03"
+  },
+  "app/comfort-360/ProductList.tsx": {
+    "mtime": 1785255930.518201,
+    "ast_hash": "197d44120fc5a3e23476ba0ccc28d844",
+    "semantic_hash": ""
+  },
+  "app/comfort-360/page.tsx": {
+    "mtime": 1785255040.9803584,
+    "ast_hash": "45caf87f8fd2586eb893a35c25737c1e",
+    "semantic_hash": "45caf87f8fd2586eb893a35c25737c1e"
+  },
+  "app/contactenos/page.tsx": {
+    "mtime": 1785255040.9806015,
+    "ast_hash": "28eb6fd1a6305fc23b30305d87214810",
+    "semantic_hash": "28eb6fd1a6305fc23b30305d87214810"
+  },
+  "app/layout.tsx": {
+    "mtime": 1785255040.9811864,
+    "ast_hash": "b6210d77863e2463e901ea0a82df244b",
+    "semantic_hash": "b6210d77863e2463e901ea0a82df244b"
+  },
+  "app/nosotros/page.tsx": {
+    "mtime": 1785255040.9813263,
+    "ast_hash": "9c674153f4385c5dd9df7ba3e3e0e48b",
+    "semantic_hash": "9c674153f4385c5dd9df7ba3e3e0e48b"
+  },
+  "app/not-found.tsx": {
+    "mtime": 1785255040.98142,
+    "ast_hash": "97ac0d67e1458e90de4086e361984cab",
+    "semantic_hash": "97ac0d67e1458e90de4086e361984cab"
+  },
+  "app/page.tsx": {
+    "mtime": 1785255040.9815886,
+    "ast_hash": "8d5e78406e310a60b10478d614002572",
+    "semantic_hash": "8d5e78406e310a60b10478d614002572"
+  },
+  "components/magicui/bento-grid.tsx": {
+    "mtime": 1785255040.9819078,
+    "ast_hash": "bc2156bf7315742e067f5d7ed6b68244",
+    "semantic_hash": "bc2156bf7315742e067f5d7ed6b68244"
+  },
+  "components/magicui/border-beam.tsx": {
+    "mtime": 1785255040.982022,
+    "ast_hash": "5e87323d8f8d9a9bb272e7ab73f8124b",
+    "semantic_hash": "5e87323d8f8d9a9bb272e7ab73f8124b"
+  },
+  "components/magicui/number-ticker.tsx": {
+    "mtime": 1785255040.9821281,
+    "ast_hash": "fa5bd1ed1bf8c118f86c1c686b91d9cf",
+    "semantic_hash": "fa5bd1ed1bf8c118f86c1c686b91d9cf"
+  },
+  "components/magicui/shimmer-button.tsx": {
+    "mtime": 1785255040.9822261,
+    "ast_hash": "803664aac5afc32fb0c7ef39036efbdf",
+    "semantic_hash": "803664aac5afc32fb0c7ef39036efbdf"
+  },
+  "components/magicui/word-rotate.tsx": {
+    "mtime": 1785255040.9823253,
+    "ast_hash": "240e25b4b00c74787827f9917f054b3c",
+    "semantic_hash": "240e25b4b00c74787827f9917f054b3c"
+  },
+  "components/sections/about.tsx": {
+    "mtime": 1785260246.2648966,
+    "ast_hash": "0d55fd4c6c935387682342e082df305c",
+    "semantic_hash": ""
+  },
+  "components/sections/categories.tsx": {
+    "mtime": 1785260272.6895156,
+    "ast_hash": "9b6820f78e5b7748fba7332c71449d10",
+    "semantic_hash": ""
+  },
+  "components/sections/footer.tsx": {
+    "mtime": 1785260233.2702007,
+    "ast_hash": "1e0844e8d2025a96b99bad0018beb08d",
+    "semantic_hash": ""
+  },
+  "components/sections/hero.tsx": {
+    "mtime": 1785260226.2433524,
+    "ast_hash": "2c5864f0b15f64665c344ec7494d59c8",
+    "semantic_hash": ""
+  },
+  "components/sections/navbar.tsx": {
+    "mtime": 1785260229.584774,
+    "ast_hash": "cbd53d78d88e8aff4d6f90428cc61fb0",
+    "semantic_hash": ""
+  },
+  "components/sections/organigrama.tsx": {
+    "mtime": 1785260242.2696888,
+    "ast_hash": "f827d1fc316521a6e213c37fb6601a0f",
+    "semantic_hash": ""
+  },
+  "components/ui/button.tsx": {
+    "mtime": 1785255040.983545,
+    "ast_hash": "74b747c5077789bec9e1c0d716d26154",
+    "semantic_hash": "74b747c5077789bec9e1c0d716d26154"
+  },
+  "components/ui/image-modal.tsx": {
+    "mtime": 1785255040.9836383,
+    "ast_hash": "f88b3b3fd8b15c0d615107e11cfef46a",
+    "semantic_hash": "f88b3b3fd8b15c0d615107e11cfef46a"
+  },
+  "components/ui/number-ticker.tsx": {
+    "mtime": 1785255040.9837248,
+    "ast_hash": "bc416cd9453c0dd7973e546b9a1534b8",
+    "semantic_hash": "bc416cd9453c0dd7973e546b9a1534b8"
+  },
+  "lib/prisma.ts": {
+    "mtime": 1785255040.9839659,
+    "ast_hash": "222535121fc9c4fe93ec2461a1969a68",
+    "semantic_hash": "222535121fc9c4fe93ec2461a1969a68"
+  },
+  "lib/utils.ts": {
+    "mtime": 1785255040.9840534,
+    "ast_hash": "618d00bf4537ce84f9ba62c5b215fb30",
+    "semantic_hash": "618d00bf4537ce84f9ba62c5b215fb30"
+  },
+  ".claude/settings.json": {
+    "mtime": 1785255374.7253792,
+    "ast_hash": "3d1b1afdafd4facffcf39a83a45ccc77",
+    "semantic_hash": ""
+  },
+  "eslint.config.mjs": {
+    "mtime": 1785255040.983814,
+    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "semantic_hash": ""
+  },
+  "next.config.ts": {
+    "mtime": 1785255040.9842086,
+    "ast_hash": "982fcd7ae748aa9739e69ec0688af250",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1785255040.984799,
+    "ast_hash": "31e336a4af7ed6e2aca86034a67a130b",
+    "semantic_hash": ""
+  },
+  "postcss.config.mjs": {
+    "mtime": 1785255040.9848845,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": ""
+  },
+  "prisma.config.ts": {
+    "mtime": 1785255040.9849675,
+    "ast_hash": "077569188f9f24002d297ac8f1530414",
+    "semantic_hash": ""
+  },
+  "prisma/seed.ts": {
+    "mtime": 1785260288.596152,
+    "ast_hash": "b6cc523585b02b9bfa9e24050b150d11",
+    "semantic_hash": ""
+  },
+  "public/animations/Colombia.json": {
+    "mtime": 1785255040.9860616,
+    "ast_hash": "07eb5e85d9ef3068d1462652cde45dc5",
+    "semantic_hash": ""
+  },
+  "store/cartStore.ts": {
+    "mtime": 1785255041.9855628,
+    "ast_hash": "5e9d8b1b82343ca102cfa2a588f2a159",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1785255041.9856613,
+    "ast_hash": "02fc19ad21338c2ab820a70136310db4",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1785255374.7245002,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/SKILL.md": {
+    "mtime": 1785255374.7241552,
+    "ast_hash": "dfb0a6554c4af62df6effc61c6c7d245",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/add-watch.md": {
+    "mtime": 1785206735.5655782,
+    "ast_hash": "d59d027fe449f06aa03905a01184e779",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/exports.md": {
+    "mtime": 1785206735.5656564,
+    "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1785206735.565787,
+    "ast_hash": "42fef56a01698118f7fd722acdadea34",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1785206735.5658736,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/hooks.md": {
+    "mtime": 1785206735.5659597,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/query.md": {
+    "mtime": 1785206735.5660782,
+    "ast_hash": "3c46f8ad006874260614ed8657d02307",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/transcribe.md": {
+    "mtime": 1785206735.5661645,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/update.md": {
+    "mtime": 1785206735.5662847,
+    "ast_hash": "9378bd03d56baaf78bd738ab3848f142",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1785255374.7250605,
+    "ast_hash": "82efb97a359f5c7290bf2513d14686be",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1785255040.978388,
+    "ast_hash": "f15aaa42d5d299d091b1171097ea56ad",
+    "semantic_hash": ""
+  },
+  "build_output.txt": {
+    "mtime": 1785255040.9816873,
+    "ast_hash": "88b003f408120744496652148491fb40",
+    "semantic_hash": ""
+  },
+  "lint_output.txt": {
+    "mtime": 1785255040.9841297,
+    "ast_hash": "f7cdcfc719de587a4e3ae95655933c51",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-apliques.pdf": {
+    "mtime": 1785255041.0200448,
+    "ast_hash": "73fa118e12b5706db8cc0f408438a750",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-botones-general.pdf": {
+    "mtime": 1785183748.0,
+    "ast_hash": "eb453a67440913403a8e6926233a7ef3",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-botones-hilo.pdf": {
+    "mtime": 1785255041.0655036,
+    "ast_hash": "563a83cf265dc10675ed4bbe04d101ab",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-botones-tendencia.pdf": {
+    "mtime": 1785258562.0,
+    "ast_hash": "c32173df704e84370c041788da659960",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-encajes.pdf": {
+    "mtime": 1785255041.0837042,
+    "ast_hash": "a6113eac4837ae7b20a9bb7dd47b4763",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-guipiur.pdf": {
+    "mtime": 1785258567.0,
+    "ast_hash": "ece67001d4c1243044582a47d9a80413",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-hebillas.pdf": {
+    "mtime": 1785191404.0,
+    "ast_hash": "a590e9cecde3c6e380e041d43d900569",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-herrajes-2.pdf": {
+    "mtime": 1785258664.833316,
+    "ast_hash": "420188a44df436dacfb90974fd709692",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-herrajes.pdf": {
+    "mtime": 1785258571.0,
+    "ast_hash": "a6aeb2cfc625d5beafc6afa0731c3618",
+    "semantic_hash": ""
+  },
+  "public/catalogos/catalogo-strass.pdf": {
+    "mtime": 1785255041.5117023,
+    "ast_hash": "1ba315b8199f4f24dfa6ee9f9be61ddc",
+    "semantic_hash": ""
+  },
+  "app/icon.svg": {
+    "mtime": 1785255040.9809074,
+    "ast_hash": "9fc5e48e5965ab3fcd34a79465f473f3",
+    "semantic_hash": ""
+  },
+  "public/catalogos/medidas-botones.png": {
+    "mtime": 1785255041.5157952,
+    "ast_hash": "dfa9f488425b2c3cbd4cea4c9235bc17",
+    "semantic_hash": ""
+  },
+  "public/images/about.png": {
+    "mtime": 1785255041.5339413,
+    "ast_hash": "88846a1271e66ec317f9bbbcb7692857",
+    "semantic_hash": ""
+  },
+  "public/images/apliques.png": {
+    "mtime": 1785255041.5543764,
+    "ast_hash": "d7bcb5126e7c82074f2fbb62e395419d",
+    "semantic_hash": ""
+  },
+  "public/images/botones-general.png": {
+    "mtime": 1785255041.579736,
+    "ast_hash": "3fc69a567766879588460fed861a44e0",
+    "semantic_hash": ""
+  },
+  "public/images/botones-hilo.png": {
+    "mtime": 1785255041.6108778,
+    "ast_hash": "923e433017b870f8e5f9512889da66f8",
+    "semantic_hash": ""
+  },
+  "public/images/botones-tendencia.png": {
+    "mtime": 1785255041.627647,
+    "ast_hash": "74033b6673c2e2dca4e9cf0f5ffb7441",
+    "semantic_hash": ""
+  },
+  "public/images/encajes.png": {
+    "mtime": 1785255041.6497645,
+    "ast_hash": "3934a287d79764141cdb8d01838ec4c8",
+    "semantic_hash": ""
+  },
+  "public/images/guipiur.png": {
+    "mtime": 1785255041.6766088,
+    "ast_hash": "d12c9a8f19f17b4e220172b8f0c2bc2e",
+    "semantic_hash": ""
+  },
+  "public/images/hebillas.png": {
+    "mtime": 1785255041.6957018,
+    "ast_hash": "e76da30cd8b52bd6461cd1808cf96d33",
+    "semantic_hash": ""
+  },
+  "public/images/hero-bg.png": {
+    "mtime": 1785255041.7148824,
+    "ast_hash": "e34e67e63bb218de313fe9b961e6f33f",
+    "semantic_hash": ""
+  },
+  "public/images/herrajes.png": {
+    "mtime": 1785255041.7348926,
+    "ast_hash": "7326784876d750dd76c1d2d119732881",
+    "semantic_hash": ""
+  },
+  "public/images/logo.png": {
+    "mtime": 1785255041.740071,
+    "ast_hash": "8a59c2fbce51bee1750dd92681f53e8e",
+    "semantic_hash": ""
+  },
+  "public/images/medidas.png": {
+    "mtime": 1785255041.7554088,
+    "ast_hash": "43e059397dda0016d3d874b47e65e483",
+    "semantic_hash": ""
+  },
+  "public/images/strass.png": {
+    "mtime": 1785255041.7733405,
+    "ast_hash": "7068fe92efc76e459ba5633aa2a1ca63",
+    "semantic_hash": ""
+  },
+  "public/organigrama/angie-torres.jpg": {
+    "mtime": 1785255041.7815537,
+    "ast_hash": "4a1e79454adbb73b647df8c432dc4f02",
+    "semantic_hash": ""
+  },
+  "public/organigrama/cristina-poblador.jpg": {
+    "mtime": 1785255041.782433,
+    "ast_hash": "76d8ec4ec9611a5cdc1153ce2b606291",
+    "semantic_hash": ""
+  },
+  "public/organigrama/dayana-linares.jpg": {
+    "mtime": 1785255041.782672,
+    "ast_hash": "9066973e2695b5cda4e9ff58a01d12cd",
+    "semantic_hash": ""
+  },
+  "public/organigrama/mauricio-lozada.jpg": {
+    "mtime": 1785255041.782855,
+    "ast_hash": "c5c8c0c30fb72a936ffb1d56862e3be8",
+    "semantic_hash": ""
+  },
+  "public/organigrama/norma-linares.jpg": {
+    "mtime": 1785255041.7838154,
+    "ast_hash": "9d4ec8558ca1feab59e10458b424268b",
+    "semantic_hash": ""
+  },
+  "public/productos/cama-combinada.jpg": {
+    "mtime": 1785255041.7885084,
+    "ast_hash": "32035d7683427e2b746be1b384d3c2fd",
+    "semantic_hash": ""
+  },
+  "public/productos/cama-unicolor.jpg": {
+    "mtime": 1785255041.7892761,
+    "ast_hash": "ef2b7e8e99515960b81deb7a151f47be",
+    "semantic_hash": ""
+  },
+  "public/productos/cobija-elite.jpg": {
+    "mtime": 1785255041.7900555,
+    "ast_hash": "f763b28ac31b0c6877cd1ba42d6d1d1d",
+    "semantic_hash": ""
+  },
+  "public/productos/cobija-polar.jpg": {
+    "mtime": 1785255041.7941322,
+    "ast_hash": "bd7c90f0533767729765fe32b460791e",
+    "semantic_hash": ""
+  },
+  "public/productos/cobija-viajera.jpg": {
+    "mtime": 1785255041.80203,
+    "ast_hash": "f7782ffe338edc0d825c827331250943",
+    "semantic_hash": ""
+  },
+  "public/productos/tapete-cocina.jpg": {
+    "mtime": 1785255041.807015,
+    "ast_hash": "cebdf3f950d3bfe1a2dd90f326b30c9d",
+    "semantic_hash": ""
+  },
+  "public/productos/tapete-ovalado.jpg": {
+    "mtime": 1785255041.8133116,
+    "ast_hash": "a0e02a7a134dec289dc17ef9ac3c00da",
+    "semantic_hash": ""
+  },
+  "public/productos/tapete-rectangular.jpg": {
+    "mtime": 1785255041.8171325,
+    "ast_hash": "b760b2ce397bcee611c5e6d4e2a72a75",
+    "semantic_hash": ""
+  },
+  "public/productos/toallas.jpg": {
+    "mtime": 1785255041.8243809,
+    "ast_hash": "6ba2196e32ebf63b896915fed3376005",
+    "semantic_hash": ""
+  },
+  "public/videos/hero-video.mp4": {
+    "mtime": 1785255041.985189,
+    "ast_hash": "f182da8df816643f85a8b5b036ccc55b",
+    "semantic_hash": ""
+  },
+  "prisma/scripts/update-product-images.ts": {
+    "mtime": 1785260304.455416,
+    "ast_hash": "27be25b080e13e60dcf95ad285c73bb5",
+    "semantic_hash": ""
+  },
+  "app/api/cron/release-expired-orders/route.ts": {
+    "mtime": 1785261700.339634,
+    "ast_hash": "14a471326450e1a14dbb5afe8802f83d",
+    "semantic_hash": ""
+  }
+}

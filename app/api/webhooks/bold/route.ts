@@ -15,13 +15,15 @@ export async function POST(req: Request) {
     const encodedBody = Buffer.from(rawBody).toString('base64');
     const hashed = crypto.createHmac('sha256', secretKey).update(encodedBody).digest('hex');
 
-    if (receivedSignature) {
-      const hashedBuffer = Buffer.from(hashed);
-      const signatureBuffer = Buffer.from(receivedSignature);
+    if (!receivedSignature) {
+      return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
+    }
 
-      if (hashedBuffer.length !== signatureBuffer.length || !crypto.timingSafeEqual(hashedBuffer, signatureBuffer)) {
-        return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
-      }
+    const hashedBuffer = Buffer.from(hashed);
+    const signatureBuffer = Buffer.from(receivedSignature);
+
+    if (hashedBuffer.length !== signatureBuffer.length || !crypto.timingSafeEqual(hashedBuffer, signatureBuffer)) {
+      return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
     }
 
     const body = JSON.parse(rawBody);
@@ -35,26 +37,11 @@ export async function POST(req: Request) {
       });
 
       if (order && order.status !== 'PAID') {
-        await prisma.$transaction(async (tx) => {
-          await tx.order.update({
-            where: { id: orderId },
-            data: { status: 'PAID', boldPaymentId: body.data?.id || null },
-          });
-
-          for (const item of order.items) {
-            const product = await tx.product.findUnique({
-              where: { id: item.productId },
-            });
-
-            if (!product) continue;
-
-            const newStock = Math.max(0, product.stock - item.quantity);
-
-            await tx.product.update({
-              where: { id: item.productId },
-              data: { stock: newStock },
-            });
-          }
+        // Stock was already reserved atomically when the order was created
+        // (app/api/checkout/route.ts), so approval only flips the order status.
+        await prisma.order.update({
+          where: { id: orderId },
+          data: { status: 'PAID', boldPaymentId: body.data?.id || null },
         });
 
         const productsHtml = order.items
@@ -160,6 +147,43 @@ export async function POST(req: Request) {
           console.error('Email send error:', emailError);
         }
       }
+    } else if (paymentStatus !== 'SALE_APPROVED' && orderId) {
+      // Bold's documented non-approval types are SALE_REJECTED, VOID_APPROVED and
+      // VOID_REJECTED, but any type other than SALE_APPROVED on a still-PENDING
+      // order is treated as a failed sale so the reservation is released even for
+      // undocumented/future event types.
+      await prisma.$transaction(async (tx) => {
+        const order = await tx.order.findUnique({
+          where: { id: orderId },
+          include: { items: true },
+        });
+
+        if (!order) return;
+
+        // Atomic guard: only one concurrent webhook delivery can flip PENDING ->
+        // FAILED, so the stock release below runs at most once (idempotent).
+        const released = await tx.order.updateMany({
+          where: { id: orderId, status: 'PENDING' },
+          data: { status: 'FAILED' },
+        });
+
+        if (released.count === 0) return;
+
+        const quantityByProductId = new Map<number, number>();
+        for (const item of order.items) {
+          quantityByProductId.set(
+            item.productId,
+            (quantityByProductId.get(item.productId) || 0) + item.quantity
+          );
+        }
+
+        for (const [productId, quantity] of quantityByProductId) {
+          await tx.product.update({
+            where: { id: productId },
+            data: { stock: { increment: quantity } },
+          });
+        }
+      });
     }
     return NextResponse.json({ received: true }, { status: 200 });
   } catch (error) {

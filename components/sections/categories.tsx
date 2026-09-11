@@ -3,7 +3,7 @@
 import { useState } from "react";
 import {
   Scissors, Layers, CircleDot, Sparkles, Gem,
-  Palette, Ruler, Anchor, Disc,
+  Palette, Ruler, Anchor, Disc, Link as LinkIcon,
 } from "lucide-react";
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import ImageModal from "@/components/ui/image-modal";
@@ -33,7 +33,7 @@ export default function Categories() {
       description: "Hebillas, argollas y mosquetones de alta resistencia.",
       href: "/catalogos/catalogo-herrajes.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/herrajes.png" alt="Herrajes" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256623/herrajes_r0nmvq.png" alt="Herrajes" />,
       className: "md:col-span-1",
     },
     {
@@ -42,7 +42,7 @@ export default function Categories() {
       description: "Diseños vanguardistas que definen la temporada.",
       href: "/catalogos/catalogo-botones-tendencia.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/botones-tendencia.png" alt="Botones Tendencia" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256630/botones-tendencia_jwhrdv.png" alt="Botones Tendencia" />,
       className: "md:col-span-2",
     },
     {
@@ -51,7 +51,7 @@ export default function Categories() {
       description: "Colección clásica para toda ocasión.",
       href: "/catalogos/catalogo-botones-general.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/botones-general.png" alt="Botones General" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256625/botones-general_gcjv0l.png" alt="Botones General" />,
       className: "md:col-span-1",
     },
     {
@@ -60,7 +60,7 @@ export default function Categories() {
       description: "Elegancia textil y texturas naturales.",
       href: "/catalogos/catalogo-botones-hilo.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/botones-hilo.png" alt="Botones Hilo" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256633/botones-hilo_x6ebln.png" alt="Botones Hilo" />,
       className: "md:col-span-1",
     },
     {
@@ -69,7 +69,7 @@ export default function Categories() {
       description: "Detalles bordados y pedrería exclusivos.",
       href: "/catalogos/catalogo-apliques.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/apliques.png" alt="Apliques" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256627/apliques_ccaydq.png" alt="Apliques" />,
       className: "md:col-span-1",
     },
     {
@@ -78,7 +78,7 @@ export default function Categories() {
       description: "Suavidad y diseño en encajes delicados.",
       href: "#",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/encajes.png" alt="Encajes" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256634/encajes_yoccov.png" alt="Encajes" />,
       className: "md:col-span-1",
       action: "alert",
     },
@@ -88,7 +88,7 @@ export default function Categories() {
       description: "Tejidos estructurados de alta calidad.",
       href: "/catalogos/catalogo-guipiur.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/guipiur.png" alt="Guipiur" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256631/guipiur_cme59p.png" alt="Guipiur" />,
       className: "md:col-span-1",
     },
     {
@@ -97,7 +97,7 @@ export default function Categories() {
       description: "Cristales y brillo para acabados de lujo.",
       href: "/catalogos/catalogo-strass.pdf",
       cta: "Ver Catálogo",
-      background: <CategoryBackground src="/images/strass.png" alt="Strass" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256632/strass_weuilu.png" alt="Strass" />,
       className: "md:col-span-1",
     },
     {
@@ -106,9 +106,18 @@ export default function Categories() {
       description: "Referencia técnica de tamaños.",
       href: "/catalogos/medidas-botones.png",
       cta: "Ver Medidas",
-      background: <CategoryBackground src="/images/medidas.png" alt="Guía Medidas" />,
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256628/medidas_d7h22v.png" alt="Guía Medidas" />,
       className: "md:col-span-1",
       action: "modal",
+    },
+    {
+      Icon: LinkIcon,
+      name: "Hebillas",
+      description: "Hebillas de alta resistencia para cinturones y accesorios.",
+      href: "/catalogos/catalogo-hebillas.pdf",
+      cta: "Ver Catálogo",
+      background: <CategoryBackground src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256624/hebillas_reu1tb.png" alt="Hebillas" />,
+      className: "md:col-span-1",
     },
   ];
 
@@ -131,8 +140,6 @@ export default function Categories() {
               } else if (item.action === "modal") {
                 setSelectedImage(item.href);
                 setModalOpen(true);
-              } else {
-                window.open(item.href, "_blank");
               }
             };
 

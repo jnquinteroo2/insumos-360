@@ -10,7 +10,7 @@ export default function About() {
           <div className="w-full lg:w-1/2 relative group">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
               <img
-                src="/images/about.png"
+                src="https://res.cloudinary.com/dvrz5uflr/image/upload/v1785256627/about_djlwsi.png"
                 alt="Bodega de Insumos Textiles Insumos 360 Pro"
                 loading="lazy"
                 decoding="async"

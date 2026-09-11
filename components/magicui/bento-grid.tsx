@@ -77,7 +77,8 @@ const BentoCard = ({
       ) : (
         <a
           href={href}
-          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 w-full sm:w-auto bg-gold-500 hover:bg-gold-600 text-white shadow-lg cursor-pointer border-none"
         >
           {cta}
