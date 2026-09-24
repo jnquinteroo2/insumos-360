@@ -10,6 +10,7 @@ export default function ProductList() {
   const addToCart = useCartStore((state) => state.addToCart);
   const decrementQuantity = useCartStore((state) => state.decrementQuantity);
   const cart = useCartStore((state) => state.cart);
+  const syncCart = useCartStore((state) => state.syncCart);
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -41,6 +42,7 @@ export default function ProductList() {
       })
       .then((data) => {
         setProducts(data);
+        syncCart(data);
         setHasError(false);
       })
       .catch(() => setHasError(true))
@@ -96,6 +98,8 @@ export default function ProductList() {
     'Beige': '#B88A76',
     'Naranja': '#CC4C14',
     'Azul rey': '#1A4B9B',
+    'Lila': '#C4B5FD',
+    'Verde': '#86B049',
     'Combinado': 'linear-gradient(to right, #94A3B8, #F8FAFC)',
     'Surtidos': 'linear-gradient(to right, #0F172A, #F8FAFC, #64748B)',
     'Diseño Cocina': 'linear-gradient(to right, #D4AF37, #0A192F)'
@@ -239,7 +243,7 @@ export default function ProductList() {
                         className="w-full h-11 bg-gray-50 border border-gray-200 rounded-lg px-3 text-sm font-bold text-navy-900 focus:ring-2 focus:ring-gold-500 outline-none cursor-pointer"
                       >
                         {uniqueVariants.map(v => (
-                          <option key={v.id} value={v.id}>{v.size || 'Estándar'}</option>
+                          <option key={v.id} value={v.id}>{(v.size || 'Estándar') + (v.stock <= 0 ? ' — Agotado' : '')}</option>
                         ))}
                       </select>
                     ) : (
@@ -285,7 +289,7 @@ export default function ProductList() {
                       <button onClick={() => addToCart(currentProduct, activeColor)} disabled={qty >= currentProduct.stock} className="w-8 h-8 flex items-center justify-center text-navy-900 hover:bg-gold-200 rounded-full"><Plus size={14} /></button>
                     </div>
                   ) : (
-                    <button onClick={() => addToCart(currentProduct, activeColor)} className="w-10 h-10 rounded-full bg-navy-900 text-white flex items-center justify-center hover:bg-gold-600 transition-colors">
+                    <button onClick={() => addToCart(currentProduct, activeColor)} disabled={isAgotado} className="w-10 h-10 rounded-full bg-navy-900 text-white flex items-center justify-center hover:bg-gold-600 transition-colors">
                       <Plus size={20} />
                     </button>
                   )}

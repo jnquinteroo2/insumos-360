@@ -26,6 +26,7 @@ interface CartStore {
   decrementQuantity: (cartItemId: string) => void
   clearCart: () => void
   getTotal: () => number
+  syncCart: (products: Product[]) => void
 }
 
 export const useCartStore = create<CartStore>()(
@@ -64,6 +65,32 @@ export const useCartStore = create<CartStore>()(
       },
       
       clearCart: () => set({ cart: [] }),
+
+      syncCart: (products) => {
+        const byId = new Map(products.map((p) => [p.id, p]))
+        const cart = get().cart
+        const synced = cart
+          .map((item) => {
+            const fresh = byId.get(item.id)
+            if (!fresh || fresh.stock <= 0) return null
+            const quantity = Math.min(item.quantity, fresh.stock)
+            return { ...item, ...fresh, quantity, selectedColor: item.selectedColor, cartItemId: item.cartItemId }
+          })
+          .filter((item): item is CartItem => item !== null)
+        const changed =
+          synced.length !== cart.length ||
+          synced.some((item, i) => {
+            const prev = cart[i]
+            return (
+              item.price !== prev.price ||
+              item.quantity !== prev.quantity ||
+              item.image !== prev.image ||
+              item.name !== prev.name ||
+              item.stock !== prev.stock
+            )
+          })
+        if (changed) set({ cart: synced })
+      },
       
       getTotal: () => get().cart.reduce((total, item) => total + item.price * item.quantity, 0)
     }),

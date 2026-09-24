@@ -1,7 +1,7 @@
 "use client";
 
 import { useCartStore } from "@/store/cartStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Script from "next/script";
 import Link from "next/link";
 import GlassNavbar from "@/components/sections/navbar";
@@ -21,7 +21,16 @@ declare global {
 }
 
 export default function CheckoutPage() {
-  const { cart, getTotal, removeFromCart } = useCartStore();
+  const { cart, getTotal, removeFromCart, syncCart } = useCartStore();
+  const [syncing, setSyncing] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((products) => syncCart(products))
+      .catch(() => {})
+      .finally(() => setSyncing(false));
+  }, [syncCart]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -137,10 +146,16 @@ export default function CheckoutPage() {
                     key={item.cartItemId}
                     className="flex gap-3 items-center bg-white p-3 rounded-2xl shadow-sm border border-gray-100"
                   >
-                    <div className="relative h-14 w-14 md:h-16 md:w-16 rounded-lg bg-gradient-to-br from-navy-800 to-navy-950 flex-shrink-0 overflow-hidden flex items-center justify-center p-1 text-center">
-                      <span className="text-gold-500/70 text-[8px] md:text-[10px] font-bold leading-tight font-heading">
-                        {item.name}
-                      </span>
+                    <div className="relative h-14 w-14 md:h-16 md:w-16 rounded-lg bg-gray-100 flex-shrink-0 overflow-hidden">
+                      {item.image && (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      )}
                     </div>
 
                     <div className="flex-grow space-y-0.5">
@@ -249,7 +264,7 @@ export default function CheckoutPage() {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || syncing}
                 className="w-full bg-gold-500 text-navy-900 font-black text-base md:text-lg py-3.5 rounded-xl shadow-lg hover:bg-gold-600 transition-all flex items-center justify-center gap-2 mt-6"
               >
                 {loading ? (
